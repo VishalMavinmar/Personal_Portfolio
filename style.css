@@ -1,0 +1,425 @@
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    color: white;
+    font-family: "Poppins", serif;
+    background-color: rgb(0, 0, 33);
+
+}
+
+nav {
+    top: 0;
+    /* position:fixed;  */
+    display: flex;
+    justify-content: space-around;
+    /* display: inline-block; */
+    align-items: center;
+    height: 70px;
+    background-color: rgb(22, 22, 66);
+    /* width: 100vw; */
+
+
+}
+
+@media (max-width:600px) {
+   
+    nav{
+
+        display: block;
+    }
+}
+
+nav ul {
+
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+
+    list-style: none;
+    margin: 0 23px;
+}
+
+
+nav ul li a:hover {
+
+    color: rgb(179, 0, 164);
+    font-size: 1.02rem;
+}
+
+nav ul li a {
+
+    text-decoration: none;
+    color: white;
+}
+
+main hr {
+
+    border: 0;
+    background: #9c97f1;
+    height: 1.2px;
+    margin: 10px 84px;
+}
+
+.left {
+    font-size: 1.5rem;
+}
+
+.firstsection {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.firstsection>div {
+    width: 30%;
+}
+
+.leftsection {
+
+    font-size: 2rem;
+    margin: 80px 0;
+    align-items: center;
+}
+
+.leftsection .btn {
+    border-radius: 9px;
+    color: white;
+    border: 2px solid white;
+    background: purple;
+    padding: 8px 5px;
+    font-size: large;
+}
+
+.buttons
+.btn{
+
+    margin: 0px 5px;
+}
+.rightsection img {
+
+    /* padding: 40px; */
+    width: 115%;
+    margin: 17px 0px;
+
+
+}
+
+
+.purple {
+    color: purple;
+}
+
+
+.secondsection {
+    max-width: 90vw;
+    margin: auto;
+    position: relative;
+    top:1rem;
+    bottom: 10rem;
+}
+
+.secondsection h1 {
+    font-size: 2rem;
+}
+
+.secondsection.gray {
+    color: gray;
+}
+
+.passion {
+
+    position: relative;
+    top: 50px;
+    margin: 0px 50px;
+}
+
+.hrtag {
+    size: 2rem;
+    width: 100vw;
+    margin: 30px 0px;
+
+}
+
+.secondsection .box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.secondsection .vertical {
+    background-color: rgb(22, 22, 66);
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 200px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.vertical img {
+    max-width: 50px;
+    margin-bottom: 10px;
+}
+
+.vertical-title {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.vertical-desc {
+    color: gray;
+    font-size: 0.85rem;
+}
+
+
+
+.new {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #f1f4fd; */
+
+
+}
+
+
+/* .container {
+
+    max-width: 1200px;
+    width: 95%;
+}
+
+.sliderwrapper .imagelist {
+
+
+    display: grid;
+    gap: 20px;
+    font-size: 0;
+    grid-template-columns: repeat(10, 1fr);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+}
+
+.sliderwrapper .imagelist::-webkit-scrollbar {
+
+
+    display: none;
+}
+
+.sliderwrapper .imagelist .imageitem {
+
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+} */
+
+footer {
+    position: relative;
+    top:2rem;
+    background-color: rgb(22, 22, 66);
+    padding: 20px;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer>div {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+footer .footer-right {
+    text-align: center;
+    color: gray;
+    margin-top: 20px;
+}
+
+footer .img {
+    height: 20px;
+    margin: 5px;
+}
+
+.footer-second li {
+    list-style: none;
+}
+
+#element {
+    color: purple;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* nav ul li a{
+         margin: 10px 0px;
+     } */
+
+    .leftsection {
+        text-align: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.mycolor {
+    color: purple;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+nav {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.leftsection {
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.rightsection img {
+    animation: slideInFromRight 1s ease-in-out;
+}
+
+.leftsection .btn {
+    animation: pulse 2s infinite;
+}
+
+.vertical {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.footer {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.secondsection {
+    animation: fadeIn 1s ease-in-out, slideInFromBottom 1s ease-in-out;
+}
+
+.secondsection .box {
+    animation: zoomIn 1s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.secondsection .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+   
+}
