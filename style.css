@@ -423,3 +423,136 @@ nav {
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
    
 }
+
+
+/* Hamburger menu icon */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .right {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: rgb(22, 22, 66);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 999;
+  }
+
+  .right ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right ul li {
+    margin: 10px 0;
+  }
+
+  .right.show {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .left{
+    position: relative;
+    top: 15px;
+  }
+
+  .right {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: rgb(22, 22, 66);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 999;
+  }
+
+  .right ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right ul li {
+    margin: 10px 0;
+  }
+
+  .right.show {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .firstsection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .firstsection > div {
+    width: 90%;
+  }
+
+  .rightsection img {
+    width: 90%;
+    height: auto;
+  }
+
+  .leftsection {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+
+  .leftsection .buttons {
+    margin-top: 10px;
+  }
+
+  .leftsection .btn {
+    margin: 5px;
+    font-size: 1rem;
+  }
+}
