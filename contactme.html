@@ -1,42 +1,78 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="contactme.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="contactme.css" />
 </head>
+
 <body>
-    <section id="contact-me">
-        <h2>Contact Me</h2>
-        <p style="text-align:center;" class="Poppins">Feel free to ask questions or drop a hello!</p>
+  <section id="contact-me">
+    <h2>Contact Me</h2>
+    <p style="text-align:center;" class="Poppins">Feel free to ask questions or drop a hello!</p>
 
-        <form id="contactForm" action="https://example.com/submit-form" method="post">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <!-- FORM -->
+    <form id="contactForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" placeholder="Write your message here" rows="5" required></textarea>
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" placeholder="Write your message here" rows="5" required></textarea>
 
-            <button type="submit">Send Message</button>
-        </form>
+      <button type="submit">Send Message</button>
+    </form>
 
-        <div class="alternative-contact">
-            <p>Or reach out via:</p>
-            <ul>
-                <li>Email: <a href="mailto:vishalmavinmar3@gmail.com">vishalmavinmar3@gmail.com</a></li>
-                <li>Phone: <a href="tel:+1234567890">9699136772</a></li>
-                <li>LinkedIn: <a href="https://in.linkedin.com/in/vishal-mavinmar-4724372b8" target="_blank">My LinkedIn</a></li>
-            </ul>
-        </div>
-    </section>
+    <!-- SUCCESS MESSAGE -->
+    <div id="success-message" style="display:none; color: green; margin-top: 20px;">
+      ✅ Message submitted successfully!
+    </div>
 
-    
+    <!-- ALTERNATIVE CONTACT -->
+    <div class="alternative-contact">
+      <p>Or reach out via:</p>
+      <ul>
+        <li>Email: <a href="mailto:vishalmavinmar3@gmail.com">vishalmavinmar3@gmail.com</a></li>
+        <li>Phone: <a href="tel:+1234567890">9699136772</a></li>
+        <li>LinkedIn: <a href="https://in.linkedin.com/in/vishal-mavinmar-4724372b8" target="_blank">My LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // stop default behavior
+
+      const formData = new FormData(form);
+
+      fetch("https://formsubmit.co/ajax/vishalmavinmar3@gmail.com", {
+        method: "POST",
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+            form.reset(); // clear form
+            document.getElementById('success-message').style.display = 'block';
+          } else {
+            alert("❌ Failed to send message. Please try again.");
+          }
+        })
+        .catch(error => {
+          alert("❌ Error submitting form.");
+          console.error(error);
+        });
+    });
+  </script>
 </body>
+
 </html>
