@@ -1,5 +1,5 @@
  var typed = new Typed('#element', {
-            strings: ['Web Developer', 'Passionate Python developer', 'Data Analyst', 'Java Developer','Software Developer'],
+            strings: ['Web Developer', 'Passionate Python developer', 'Java Developer','Software Developer'],
             typeSpeed: 50,
         });
 
@@ -13,3 +13,4 @@
 document.getElementById('menu-toggle').addEventListener('click', function () {
     document.getElementById('nav-menu').classList.toggle('show');
 });
+
