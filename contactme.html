@@ -30,12 +30,11 @@
       <button type="submit">Send Message</button>
     </form>
 
-    <!-- SUCCESS MESSAGE -->
     <div id="success-message" style="display:none; color: green; margin-top: 20px;">
       ✅ Message submitted successfully!
     </div>
 
-    <!-- ALTERNATIVE CONTACT -->
+    
     <div class="alternative-contact">
       <p>Or reach out via:</p>
       <ul>
@@ -51,7 +50,7 @@
     const form = document.getElementById('contactForm');
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // stop default behavior
+      e.preventDefault(); 
 
       const formData = new FormData(form);
 
@@ -76,3 +75,4 @@
 </body>
 
 </html>
+
