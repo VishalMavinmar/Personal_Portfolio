@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>My Portfolio · Creative Developer & Engineer</title>
   
   <!-- Fonts -->
@@ -50,6 +50,7 @@
       overflow-x: hidden;
       position: relative;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     .glow-sphere {
@@ -177,9 +178,19 @@
       padding: 0.4rem 0.6rem;
       border-radius: 40px;
       transition: background 0.2s;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
     }
     .menu-toggle:hover {
       background: rgba(255,255,255,0.05);
+    }
+    .menu-toggle i {
+      transition: transform 0.3s ease;
+    }
+    .menu-toggle.active i {
+      transform: rotate(90deg);
     }
 
     main {
@@ -587,8 +598,13 @@
       transform: translateY(-2px);
     }
 
-    /* ===== FULLY RESPONSIVE ===== */
+    /* ============================================================ */
+    /* FULLY RESPONSIVE — MODERN MOBILE LAYOUT (clean, no overflow)  */
+    /* ============================================================ */
     @media (max-width: 900px) {
+      header {
+        padding: 0 1.2rem;
+      }
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
@@ -603,17 +619,17 @@
         justify-content: center;
       }
       .menu-toggle {
-        display: block;
+        display: flex;
       }
       .nav-links {
         display: none;
         position: absolute;
         top: calc(100% + 8px);
-        left: 1.5rem;
-        right: 1.5rem;
-        background: rgba(12, 14, 22, 0.95);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
+        left: 1.2rem;
+        right: 1.2rem;
+        background: rgba(12, 14, 22, 0.96);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
         border: 1px solid var(--border-subtle);
         border-radius: 24px;
         flex-direction: column;
@@ -637,48 +653,79 @@
       }
     }
 
-    @media (max-width: 600px) {
+    /* ===== MOBILE FIRST: clean vertical flow, no second-image syndrome ===== */
+    @media (max-width: 640px) {
       header {
-        padding: 0 1rem;
+        padding: 0 0.8rem;
         top: 10px;
       }
       nav {
-        padding: 0.5rem 1.2rem;
+        padding: 0.5rem 1rem;
         border-radius: 60px;
       }
       .logo {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        gap: 0.3rem;
+      }
+      .logo-dot {
+        width: 6px;
+        height: 6px;
       }
       .hero {
-        padding: 1.5rem 0;
-        gap: 2rem;
+        padding: 1.2rem 0 1.5rem;
+        gap: 1.8rem;
       }
       .hero-text h1 {
-        font-size: clamp(1.8rem, 7vw, 2.4rem);
+        font-size: clamp(1.7rem, 7vw, 2.4rem);
+      }
+      .hero-subtitle {
+        font-size: 1rem;
       }
       .dynamic-wrapper {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         min-height: 1.8rem;
+        margin-bottom: 1.4rem;
+      }
+      .status-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.7rem;
+        margin-bottom: 0.8rem;
       }
       .hero-actions {
         flex-direction: column;
         width: 100%;
-        gap: 0.8rem;
+        gap: 0.7rem;
       }
       .btn-primary, .btn-secondary {
         width: 100%;
         justify-content: center;
         padding: 0.7rem 1.2rem;
         font-size: 0.9rem;
+        border-radius: 10px;
       }
+      /* profile card — clean on mobile, no overflow */
       .profile-card {
-        padding: 1.8rem;
+        padding: 1.8rem 1.2rem;
         max-width: 280px;
+        margin: 0 auto;
+        border-radius: 20px;
       }
       .avatar-wrapper {
         width: 80px;
         height: 80px;
         font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+      }
+      .profile-card h3 {
+        font-size: 1.2rem;
+      }
+      .profile-card p {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+      }
+      .pill {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
       }
       section {
         padding: 3rem 0;
@@ -688,51 +735,95 @@
       }
       .skills-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 0.9rem;
       }
       .skill-card {
-        padding: 1.2rem;
+        padding: 1.2rem 1rem;
+        border-radius: 16px;
+      }
+      .skill-icon {
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+      }
+      .skill-title {
+        font-size: 1rem;
+      }
+      .skill-desc {
+        font-size: 0.8rem;
       }
       .projects-grid {
         grid-template-columns: 1fr;
-        gap: 1.2rem;
+        gap: 1rem;
       }
       .project-thumb {
-        height: 150px;
+        height: 140px;
+      }
+      .project-body {
+        padding: 1.2rem;
       }
       .contact-container {
-        padding: 2.5rem 1.2rem;
-        border-radius: 24px;
+        padding: 2rem 1.2rem;
+        border-radius: 20px;
+      }
+      .contact-title {
+        font-size: 1.8rem;
+      }
+      .contact-desc {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
       }
       .footer-inner {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
+        padding: 0 1rem;
       }
       .social-links {
         justify-content: center;
+      }
+      /* nav menu toggle -> X icon when active (modern) */
+      .menu-toggle.active .fa-bars:before {
+        content: "\f00d"; /* FontAwesome 'X' */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+      }
+      /* fix for icon swap */
+      .menu-toggle .fa-bars {
+        transition: all 0.2s ease;
+      }
+      .menu-toggle.active .fa-bars {
+        transform: rotate(90deg);
       }
     }
 
     @media (max-width: 420px) {
       .skills-grid {
         grid-template-columns: 1fr;
+        gap: 0.8rem;
       }
       .profile-card {
         max-width: 100%;
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
       }
       .nav-links {
-        left: 0.8rem;
-        right: 0.8rem;
-        border-radius: 20px;
+        left: 0.6rem;
+        right: 0.6rem;
+        border-radius: 18px;
+        padding: 0.6rem;
       }
-      .status-badge {
-        font-size: 0.7rem;
-        padding: 0.25rem 0.7rem;
+      .nav-links a {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+      }
+      .hero-text h1 {
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
       }
       .dynamic-wrapper {
-        font-size: 1rem;
+        font-size: 0.95rem;
+      }
+      .btn-primary, .btn-secondary {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
       }
     }
   </style>
@@ -783,12 +874,12 @@
             <i class="fas fa-user-astronaut"></i>
           </div>
           <h3>Vishal Mavinmar</h3>
-          <p>Full Stack Developer</p>
+          <p>Full Stack &amp; Software Engineer</p>
           <div class="tech-stack-pills">
-            <span class="pill">React.js</span>
-            <span class="pill">Django</span>
-            <span class="pill">Node.js</span>
-            <span class="pill">PostgreSQL</span>
+            <span class="pill">Java</span>
+            <span class="pill">Python</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Web Dev</span>
           </div>
         </div>
       </div>
@@ -801,24 +892,24 @@
       </div>
       <div class="skills-grid">
         <div class="skill-card">
-          <i class="fab fa-react skill-icon"></i>
-          <h3 class="skill-title">Frontend Development</h3>
-          <p class="skill-desc">React.js, React Native, JavaScript, HTML5, CSS3, and building responsive user interfaces.</p>
+          <i class="fab fa-html5 skill-icon"></i>
+          <h3 class="skill-title">Frontend</h3>
+          <p class="skill-desc">Semantic HTML5, CSS3, modern responsive layouts, and clean user interface interactions.</p>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-java skill-icon"></i>
+          <h3 class="skill-title">Java Development</h3>
+          <p class="skill-desc">OOP principles, backend architecture, Servlets, JSP, JDBC, and structured logic.</p>
         </div>
         <div class="skill-card">
           <i class="fab fa-python skill-icon"></i>
-          <h3 class="skill-title">Backend Architecture</h3>
-          <p class="skill-desc">Django, Node.js, Django REST Framework, RESTful API design, and JWT authentication systems.</p>
+          <h3 class="skill-title">Python Automation</h3>
+          <p class="skill-desc">Scripting, automated workflows, file manipulation, and algorithmic tools.</p>
         </div>
         <div class="skill-card">
           <i class="fas fa-database skill-icon"></i>
-          <h3 class="skill-title">Database &amp; Storage</h3>
-          <p class="skill-desc">PostgreSQL, MongoDB, SQL query optimization, ORM integration, and cloud database management.</p>
-        </div>
-        <div class="skill-card">
-          <i class="fas fa-tools skill-icon"></i>
-          <h3 class="skill-title">Tools &amp; Libraries</h3>
-          <p class="skill-desc">Git, GitHub, Postman, VS Code, Pandas, and open-source development workflows.</p>
+          <h3 class="skill-title">Database &amp; SQL</h3>
+          <p class="skill-desc">Relational database design, query optimization, join operations, and data management.</p>
         </div>
       </div>
     </section>
@@ -831,106 +922,48 @@
 
       <div class="projects-grid">
         <div class="project-card">
-  <div class="project-thumb"
-       style="background-image: url('https://images.ctfassets.net/2d5q1td6cyxq/7tjdvH18DlgRVgwbbBykZD/9e09f6fb97080bc62c1dcbba75867dec/caen_ph210701A_Wayla_0325_01_MW.jpg?fl=progressive&fm=jpg&q=85');">
-  </div>
-
-  <div class="project-body">
-    <h3 class="project-title">QR Ordering System</h3>
-    <p class="project-desc">
-      A full-stack restaurant platform enabling digital menus, table-side QR ordering,
-      billing, and admin management.
-    </p>
-
-    <a href="https://taptoorder.vercel.app/" target="_blank" class="project-link">
-      View Project <i class="fas fa-arrow-right"></i>
-    </a>
-  </div>
-</div>
+          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop');"></div>
+          <div class="project-body">
+            <h3 class="project-title">E-Commerce Café</h3>
+            <p class="project-desc">Café Crush — a modern storefront interface built for seamless user browsing and product interaction.</p>
+            <a href="https://github.com/VishalMavinmar/Ecommerce_Website" target="_blank" class="project-link">Explore Repository <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
 
         <div class="project-card">
           <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop');"></div>
           <div class="project-body">
-            <h3 class="project-title">Annual Report Web Platform</h3>
-            <p class="project-desc">Full-stack web platform using React.js, Django, and PostgreSQL allowing users to search companies, filter reports by sector/exchange, and download PDFs via RESTful APIs.</p>
-            <a href="https://www.arannualreport.com/" target="_blank" class="project-link">Explore Repository <i class="fas fa-arrow-right"></i></a>
+            <h3 class="project-title">Typing Velocity Test</h3>
+            <p class="project-desc">A minimal interactive browser tool measuring user typing accuracy and speed metrics in real time.</p>
+            <a href="https://github.com/VishalMavinmar/Typing_Test" target="_blank" class="project-link">Explore Repository <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1526367790999-0150786686a2?w=600&auto=format&fit=crop');"></div>
+          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop');"></div>
           <div class="project-body">
-            <h3 class="project-title">Food Delivery Android App</h3>
-            <p class="project-desc">Cross-platform mobile app engineered with React Native and Django REST Framework featuring JWT authentication, category filtering, shopping cart, and order tracking.</p>
-            <a href="https://github.com/VishalMavinmar/Food_Delivery_Android_App" target="_blank" class="project-link">Explore Repository <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-      <!-- <div class="projects-grid"> -->
-        <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=600&auto=format&fit=crop');"></div>
-          <div class="project-body">
-            <h3 class="project-title">Bank Management Project</h3>
-            <p class="project-desc">Bank Management Project built using JSP, Servlets, and Oracle SQL for managing banking transactions and accounts.</p>
-            <a href="https://github.com/VishalMavinmar/Bank_Management_Project" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+            <h3 class="project-title">Python Alarm Utility</h3>
+            <p class="project-desc">A flexible time-management script enabling custom scheduled alerts and task execution notifications.</p>
+            <a href="https://github.com/VishalMavinmar/Alarm_Clock_Project" target="_blank" class="project-link">Explore Repository <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop');"></div>
+          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1564424224827-cd24b8915874?w=600&auto=format&fit=crop');"></div>
           <div class="project-body">
-            <h3 class="project-title">Ecommerce Website</h3>
-            <p class="project-desc">Ecommerce Website, Café Crush modern café online platform with custom interactive options.</p>
-            <a href="https://github.com/VishalMavinmar/Ecommerce_Website" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+            <h3 class="project-title">Turtle Racing Simulation</h3>
+            <p class="project-desc">Graphical multi-threaded simulation leveraging Python's Turtle module for algorithmic race outcomes.</p>
+            <a href="https://github.com/VishalMavinmar/Turtle_Racing" target="_blank" class="project-link">Explore Repository <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&auto=format&fit=crop');"></div>
-          <div class="project-body">
-            <h3 class="project-title">Alexa - AI Assistant</h3>
-            <p class="project-desc">Alexa - AI Assistant executing voice commands and AI actions to streamline daily automated tasks.</p>
-            <a href="https://github.com/VishalMavinmar/Alexa-AI_Assitant" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=600&auto=format&fit=crop');"></div>
-          <div class="project-body">
-            <h3 class="project-title">Alarm Clock Project</h3>
-            <p class="project-desc">Alarm clock using Python that configures and triggers custom alarms dynamically.</p>
-            <a href="https://github.com/VishalMavinmar/Alarm_Clock_Project" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop');"></div>
-          <div class="project-body">
-            <h3 class="project-title">Personal Portfolio</h3>
-            <p class="project-desc">Personal portfolio website showcasing my software projects and personal developer profile.</p>
-            <a href="https://github.com/VishalMavinmar/Personal_Portfolio" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-
-        <div class="project-card">
-          <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop');"></div>
-          <div class="project-body">
-            <h3 class="project-title">Turtle Racing</h3>
-            <p class="project-desc">Turtle racing game built with Python Turtle graphics for real-time race simulations.</p>
-            <a href="https://github.com/VishalMavinmar/Turtle_Racing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-       
       </div>
     </section>
 
     <section id="contact">
       <div class="contact-container">
         <h2 class="contact-title">Let's build something.</h2>
-        <p class="contact-desc">Whether you have a query, project proposal, or just want to chat about full-stack development — my inbox is always open.</p>
-        <a href="mailto:vishalmavinmar3@gmail.com" class="btn-primary">Say Hello <i class="fas fa-envelope"></i></a>
+        <p class="contact-desc">Whether you have a query, project proposal, or just want to chat about code — my inbox is always open.</p>
+        <a href="mailto:vishal@example.com" class="btn-primary">Say Hello <i class="fas fa-envelope"></i></a>
       </div>
     </section>
   </main>
@@ -942,9 +975,9 @@
       </div>
       <div class="social-links">
         <a href="https://github.com/VishalMavinmar" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/vishalmavinmar" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://leetcode.com/u/vishalmavinmar" target="_blank" class="social-btn"><i class="fas fa-code"></i></a>
-        <a href="mailto:vishalmavinmar3@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/vishalmavinmar" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/@vishalmavinmar" target="_blank" class="social-btn"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/vishalmavinmar_45/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </footer>
@@ -956,6 +989,14 @@
 
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+      // toggle icon between bars and X (modern)
+      const icon = menuToggle.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.className = 'fas fa-times';
+      } else {
+        icon.className = 'fas fa-bars';
+      }
     });
 
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -965,12 +1006,15 @@
         this.classList.add('active');
         if (window.innerWidth <= 900) {
           navMenu.classList.remove('active');
+          menuToggle.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          icon.className = 'fas fa-bars';
         }
       });
     });
 
     new Typed('#dynamic-role', {
-      strings: ['Full Stack Developer', 'Django & Node.js Engineer', 'React.js Specialist', 'Problem Solver'],
+      strings: ['Full Stack Developer', 'Java Developer', 'Problem Solver', 'Aesthetic Web Creator'],
       typeSpeed: 60,
       backSpeed: 40,
       loop: true,
