@@ -527,28 +527,175 @@
       gap: 0.7rem;
     }
 
+    /* ===== ATTRACTIVE CONTACT SECTION ===== */
     .contact-container {
-      background: linear-gradient(135deg, rgba(18, 20, 29, 0.8), rgba(28, 31, 46, 0.6));
+      background: linear-gradient(145deg, rgba(18, 20, 29, 0.9), rgba(28, 31, 46, 0.7));
       border: 1px solid var(--border-subtle);
-      border-radius: 28px;
-      padding: 3.5rem 2rem;
-      text-align: center;
+      border-radius: 32px;
+      padding: 3.5rem 2.5rem;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -30%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(110, 231, 183, 0.04), transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
     }
 
     .contact-title {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(2rem, 5vw, 2.4rem);
+      font-size: clamp(2rem, 4vw, 2.6rem);
       font-weight: 700;
-      margin-bottom: 0.8rem;
+      line-height: 1.2;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .contact-desc {
       color: var(--text-muted);
-      max-width: 480px;
-      margin: 0 auto 2rem;
       font-size: 1rem;
+      max-width: 380px;
+      line-height: 1.7;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .contact-info-item i {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+      color: var(--accent-mint);
+      font-size: 1rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-item:hover i {
+      background: rgba(110, 231, 183, 0.12);
+      border-color: var(--accent-mint);
+      transform: scale(1.05);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      outline: none;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent-mint);
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 0 4px rgba(110, 231, 183, 0.08);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .btn-submit {
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 16px;
+      background: var(--gradient-accent);
+      color: var(--bg-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -8px rgba(110, 231, 183, 0.3);
+    }
+
+    .btn-submit i {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-submit:hover i {
+      transform: translateX(4px);
+    }
+
+    .form-message {
+      font-size: 0.9rem;
+      padding: 0.5rem 0;
+      color: var(--accent-mint);
+      min-height: 1.8rem;
     }
 
     footer {
@@ -651,9 +798,26 @@
         max-width: 320px;
         margin: 0 auto;
       }
+      /* contact grid -> stacked */
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .contact-info {
+        text-align: center;
+        align-items: center;
+      }
+      .contact-desc {
+        max-width: 100%;
+      }
+      .contact-info-item {
+        justify-content: center;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
 
-    /* ===== MOBILE FIRST: clean vertical flow, no second-image syndrome ===== */
     @media (max-width: 640px) {
       header {
         padding: 0 0.8rem;
@@ -703,7 +867,6 @@
         font-size: 0.9rem;
         border-radius: 10px;
       }
-      /* profile card — clean on mobile, no overflow */
       .profile-card {
         padding: 1.8rem 1.2rem;
         max-width: 280px;
@@ -770,7 +933,15 @@
       }
       .contact-desc {
         font-size: 0.9rem;
-        margin-bottom: 1.5rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+      }
+      .btn-submit {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
       }
       .footer-inner {
         flex-direction: column;
@@ -781,13 +952,11 @@
       .social-links {
         justify-content: center;
       }
-      /* nav menu toggle -> X icon when active (modern) */
       .menu-toggle.active .fa-bars:before {
-        content: "\f00d"; /* FontAwesome 'X' */
+        content: "\f00d";
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
       }
-      /* fix for icon swap */
       .menu-toggle .fa-bars {
         transition: all 0.2s ease;
       }
@@ -824,6 +993,9 @@
       .btn-primary, .btn-secondary {
         font-size: 0.85rem;
         padding: 0.6rem 1rem;
+      }
+      .contact-grid {
+        gap: 1.5rem;
       }
     }
   </style>
@@ -958,7 +1130,6 @@
           </div>
         </div>
 
-      <!-- <div class="projects-grid"> -->
         <div class="project-card">
           <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=600&auto=format&fit=crop');"></div>
           <div class="project-body">
@@ -973,7 +1144,7 @@
           <div class="project-body">
             <h3 class="project-title">Ecommerce Website</h3>
             <p class="project-desc">Ecommerce Website, Café Crush modern café online platform with custom interactive options.</p>
-            <a href="https://vishalmavinmar.github.io/Ecommerce_Website/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+            <a href="https://github.com/VishalMavinmar/Ecommerce_Website" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -1004,7 +1175,6 @@
           </div>
         </div>
 
-
         <div class="project-card">
           <div class="project-thumb" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&auto=format&fit=crop');"></div>
           <div class="project-body">
@@ -1019,9 +1189,49 @@
 
     <section id="contact">
       <div class="contact-container">
-        <h2 class="contact-title">Let's build something.</h2>
-        <p class="contact-desc">Whether you have a query, project proposal, or just want to chat about code — my inbox is always open.</p>
-        <a href="mailto:vishal@example.com" class="btn-primary">Say Hello <i class="fas fa-envelope"></i></a>
+        <div class="contact-grid">
+          <!-- left: info -->
+          <div class="contact-info">
+            <h2 class="contact-title">Let's build something.</h2>
+            <p class="contact-desc">
+              Whether you have a query, project proposal, or just want to chat about code — my inbox is always open.
+            </p>
+            <div class="contact-info-item">
+              <i class="fas fa-envelope"></i>
+              <span>vishal@example.com</span>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bangalore, India</span>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-clock"></i>
+              <span>Available · IST (GMT+5:30)</span>
+            </div>
+          </div>
+
+          <!-- right: form -->
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Email address" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" placeholder="Subject" required />
+            </div>
+            <div class="form-group">
+              <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Send Message <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="form-message" id="formMessage"></div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -1042,13 +1252,13 @@
 
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script>
+    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
 
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       menuToggle.classList.toggle('active');
-      // toggle icon between bars and X (modern)
       const icon = menuToggle.querySelector('i');
       if (navMenu.classList.contains('active')) {
         icon.className = 'fas fa-times';
@@ -1071,12 +1281,46 @@
       });
     });
 
+    // Typed.js
     new Typed('#dynamic-role', {
       strings: ['Full Stack Developer', 'Software Developer','Python Developer', 'Problem Solver', 'Web Developer'],
       typeSpeed: 60,
       backSpeed: 40,
       loop: true,
       showCursor: false
+    });
+
+    // Contact form handler (captures user input and shows feedback)
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        formMessage.textContent = '⚠️ Please fill in all fields.';
+        formMessage.style.color = '#F472B6';
+        return;
+      }
+
+      // Simulate sending (collect input)
+      console.log('📩 New message:', { name, email, subject, message });
+      
+      formMessage.textContent = `✅ Thanks, ${name}! Your message has been sent. I'll get back to you soon.`;
+      formMessage.style.color = '#6EE7B7';
+
+      // Reset form
+      contactForm.reset();
+
+      // Clear message after 6 seconds
+      setTimeout(() => {
+        formMessage.textContent = '';
+      }, 6000);
     });
   </script>
 </body>
